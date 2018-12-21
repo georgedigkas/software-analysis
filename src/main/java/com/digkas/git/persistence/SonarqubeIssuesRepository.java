@@ -59,6 +59,9 @@ public interface SonarqubeIssuesRepository extends JpaRepository<SonarqubeIssues
 
 	@Query("SELECT s FROM SonarqubeIssues s WHERE s.status LIKE 'OPEN' AND s.line IS NOT NULL AND s.commitId = :commitId")
 	Collection<SonarqubeIssues> findOpenSonarqubeIssuesWithNonNullLinesByCommitId(@Param("commitId") Commit commitId);
+	
+	@Query("SELECT s FROM SonarqubeIssues s WHERE s.status LIKE 'OPEN' AND s.methodId IS NOT NULL AND s.line IS NOT NULL AND s.commitId = :commitId")
+	Collection<SonarqubeIssues> findOpenSonarqubeIssuesMappedToMethodsWithNonNullLinesByCommitId(@Param("commitId") Commit commitId);
 
 	@Query("SELECT s FROM SonarqubeIssues s WHERE s.status LIKE 'OPEN' AND s.line IS NOT NULL AND s.commitId.projectId = :project")
 	Collection<SonarqubeIssues> findOpenSonarqubeIssuesWithNonNullLinesByProject(@Param("project") Project project);

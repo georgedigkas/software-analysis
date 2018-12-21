@@ -63,6 +63,8 @@ public interface SonarqubeIssuesService {
 	Collection<SonarqubeIssues> findOpenIssuesByCommitId(Commit commitId);
 
 	Collection<SonarqubeIssues> findOpenSonarqubeIssuesWithNonNullLinesByCommitId(Commit commitId);
+	
+	Collection<SonarqubeIssues> findOpenSonarqubeIssuesMappedToMethodsWithNonNullLinesByCommitId(Commit commitId);
 
 	Collection<SonarqubeIssues> findOpenSonarqubeIssuesWithNonNullLinesByProject(Project project);
 

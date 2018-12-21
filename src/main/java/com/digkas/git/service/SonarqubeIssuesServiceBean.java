@@ -337,6 +337,19 @@ public class SonarqubeIssuesServiceBean implements SonarqubeIssuesService {
 	}
 
 	/* (non-Javadoc)
+	 * @see com.digkas.git.service.SonarqubeIssuesService#findOpenSonarqubeIssuesMappedToMethodsWithNonNullLinesByCommitId(com.digkas.git.domain.Commit)
+	 */
+	@Override
+	public Collection<SonarqubeIssues> findOpenSonarqubeIssuesMappedToMethodsWithNonNullLinesByCommitId(Commit commitId) {
+		logger.info("> findOpenSonarqubeIssuesMappedToMethodsWithNonNullLinesByCommitId: {}", commitId);
+
+		Collection<SonarqubeIssues> sonarqubeIssues = sonarqubeIssuesRepository.findOpenSonarqubeIssuesMappedToMethodsWithNonNullLinesByCommitId(commitId);
+
+		logger.info("< findOpenSonarqubeIssuesMappedToMethodsWithNonNullLinesByCommitId: {}", commitId);
+		return sonarqubeIssues;
+	}
+
+	/* (non-Javadoc)
 	 * @see com.digkas.git.service.SonarqubeIssuesService#findOpenSonarqubeIssuesWithNonNullLinesByProject(com.digkas.git.domain.Project)
 	 */
 	@Override
